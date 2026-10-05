@@ -44,5 +44,4 @@ pipeline {
         success {
             echo 'Pipeline Successful'
         }
-    }
 }
