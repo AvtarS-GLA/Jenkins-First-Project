@@ -33,15 +33,21 @@ pipeline {
                 sh 'mvn package'
             }
         }
-    
+
         stage('Publish To Nexus') {
             steps {
                 sh 'mvn deploy'
             }
         }
+    }
 
     post {
         success {
             echo 'Pipeline Successful'
         }
+
+        failure {
+            echo 'Pipeline Failed'
+        }
+    }
 }
