@@ -7,7 +7,7 @@
 
     <groupId>com.demo</groupId>
     <artifactId>jenkins-demo-app</artifactId>
-    <version>1.0</version>
+    <version>1.0.${BUILD_NUMBER}</version>
     <packaging>jar</packaging>
 
     <name>Jenkins Demo App</name>
