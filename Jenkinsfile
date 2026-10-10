@@ -3,38 +3,38 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Pull Git Code') {
             steps {
                 echo 'Source Code Checkout'
             }
         }
 
-        stage('Environment') {
+        stage('Setup Environment') {
             steps {
                 sh 'java -version'
                 sh 'mvn -version'
             }
         }
 
-        stage('Build') {
+        stage('Compile') {
             steps {
                 sh 'mvn clean compile'
             }
         }
 
-        stage('Test') {
+        stage('Validate Test Cases') {
             steps {
                 sh 'mvn test'
             }
         }
 
-        stage('Package') {
+        stage('Packaging') {
             steps {
                 sh 'mvn package'
             }
         }
 
-        stage('Publish To Nexus') {
+        stage('Placing To Artifactory') {
             steps {
                 sh 'mvn deploy'
             }
