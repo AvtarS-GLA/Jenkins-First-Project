@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'giressh'
+        label 'docker'
     }
 
     stages {
