@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'window'
+        label 'giressh'
     }
 
     stages {
