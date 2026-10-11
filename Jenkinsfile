@@ -3,38 +3,38 @@ pipeline {
 
     stages {
 
-        stage('Pull Git Code') {
+        stage('Checkout Code') {
             steps {
                 echo 'Source Code Checkout'
             }
         }
 
-        stage('Setup Environment') {
+        stage('Sangram') {
             steps {
                 sh 'java -version'
                 sh 'mvn -version'
             }
         }
 
-        stage('Compile') {
+        stage('Avtar Singh compile') {
             steps {
                 sh 'mvn clean compile'
             }
         }
 
-        stage('Validate Test Cases') {
+        stage('Unit Test') {
             steps {
                 sh 'mvn test'
             }
         }
 
-        stage('Packaging') {
+        stage('Budle') {
             steps {
                 sh 'mvn package'
             }
         }
 
-        stage('Placing To Artifactory') {
+        stage('Deploy to Nexus Arifactory') {
             steps {
                 sh 'mvn deploy'
             }
