@@ -3,18 +3,30 @@ pipeline {
         label 'linux'
     }
 
+    options {
+        skipDefaultCheckout()
+    }
+
     stages {
+
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
 
         stage('Pull Git Code') {
             steps {
-                echo 'Source Code Checkout'
+                checkout scm
             }
         }
 
         stage('Setup Environment') {
             steps {
+                sh 'hostname'
                 sh 'java -version'
                 sh 'mvn -version'
+                sh 'git --version'
             }
         }
 
@@ -46,10 +58,12 @@ pipeline {
     post {
         success {
             echo 'Pipeline Successful'
+            cleanWs()
         }
 
         failure {
             echo 'Pipeline Failed'
+            cleanWs()
         }
     }
 }
